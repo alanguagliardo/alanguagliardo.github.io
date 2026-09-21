@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Guagliardo Group | Medical Practice Management Consulting</title>
+  <meta name="description" content="The Guagliardo Group is a medical practice management consulting firm providing strategy, operations, EMR integration, and process design for medical and dental clients.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+
+      --paper: #FFFFFF;
+      --ink: #060315;
+      --ink-2: #1A4740;
+      --text: #333F3D;
+      --muted: #5C6764;
+      --amber: #C77E2E;
+      --focus: #A8611B;
+      --line: rgba(18, 56, 50, 0.16);
+      --sidebar-bg: #121d38;
+      --sidebar-fg: #EDEFE9;
+      --sidebar-fg-dim: rgba(237, 239, 233, 0.62);
+      --footer-bg: #040427;
+      --footer-fg: #EDEFE9;
+      --btn-bg: #C77E2E;
+      --btn-fg: #123832;
+
+      --display: "Fraunces", Georgia, "Times New Roman", serif;
+      --body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --paper: #0F211E;
+        --ink: #EDEFE9;
+        --ink-2: #EDEFE9;
+        --text: #C7D0CD;
+        --muted: #93A19C;
+        --amber: #E0A85C;
+        --focus: #E0A85C;
+        --line: rgba(237, 239, 233, 0.18);
+        --sidebar-bg: #09221E;
+        --footer-bg: #09221E;
+        --btn-bg: #E0A85C;
+        --btn-fg: #09221E;
+      }
+    }
+    :root[data-theme="dark"] {
+      --paper: #0F211E;
+      --ink: #EDEFE9;
+      --ink-2: #EDEFE9;
+      --text: #C7D0CD;
+      --muted: #93A19C;
+      --amber: #E0A85C;
+      --focus: #E0A85C;
+      --line: rgba(237, 239, 233, 0.18);
+      --sidebar-bg: #09221E;
+      --footer-bg: #09221E;
+      --btn-bg: #E0A85C;
+      --btn-fg: #09221E;
+    }
+
+    html { height: 100%; background: var(--paper); scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+    *, *::before, *::after { box-sizing: inherit; }
+    body { margin: 0; background: var(--paper); color: var(--text); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    h1, h2, h3 { font-family: var(--display); color: var(--ink); margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.12; }
+    h2 { font-size: 1.6rem; line-height: 1.2; }
+    h3 { font-size: 1.15rem; line-height: 1.3; }
+    p { margin: 0; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .page { display: grid; grid-template-columns: 260px minmax(0, 1fr); align-items: stretch; }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--sidebar-bg);
+      color: var(--sidebar-fg);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: sticky;
+      top: 0;
+      align-self: start;
+      min-height: 100vh;
+    }
+    .mark {
+      width: 52px; height: 52px; border: 1.5px solid rgba(237,239,233,0.55); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--display); font-size: 1.35rem; color: var(--sidebar-fg);
+    }
+    .sidebar-nav { display: flex; flex-direction: column; gap: 1.1rem; }
+    .sidebar-nav a {
+      text-decoration: none; color: var(--sidebar-fg-dim);
+      font-size: 0.92rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.15rem 0; border-left: 2px solid transparent;
+    }
+    .sidebar-nav a:hover, .sidebar-nav a:focus-visible { color: var(--sidebar-fg); }
+
+    /* Main */
+    .content { display: flex; flex-direction: column; min-width: 0; }
+
+    .masthead { padding: 2.75rem clamp(1.5rem, 4vw, 4rem) 1.5rem; border-bottom: 1px solid var(--line); }
+    .masthead .brand { font-family: var(--display); font-weight: 600; font-size: 1.9rem; color: var(--ink); letter-spacing: -0.01em; }
+    .masthead .tag { margin-top: 0.35rem; color: var(--muted); font-size: 1rem; }
+
+    section { padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 4rem); }
+    section + section { border-top: 1px solid var(--line); }
+
+    .intro p { max-width: 46rem; font-size: 1.05rem; }
+    .intro p + p { margin-top: 1.1rem; }
+
+    .services h2 { margin-bottom: 1.5rem; }
+    .service-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
+    .service-cols li { padding: 0.6rem 0 0.6rem 1.1rem; border-top: 0px solid var(--line); font-size: 1rem; line-height: 1.45; position: relative; }
+    .service-cols li::before { content: ""; position: absolute; left: 0; top: 1.05rem; width: 6px; height: 6px; background: var(--amber); }
+    .service-cols li:last-child { border-bottom: 0px solid var(--line); }
+
+    .about .wrap-about { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2.5rem 3rem; }
+    .about h2 { margin-bottom: 1.1rem; }
+    .about p { max-width: 44rem; margin-top: 1rem; font-size: 1.02rem; }
+    .about p:first-of-type { margin-top: 0; }
+    .about-side {
+      border-left: 1px solid var(--line); padding-left: 1.75rem;
+      display: flex; flex-direction: column; gap: 1.4rem;
+    }
+    .about-side .fact dt { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); font-weight: 600; }
+    .about-side .fact dd { margin: 0.25rem 0 0; font-size: 0.95rem; color: var(--text); }
+
+    footer.contact {
+      background: var(--footer-bg); color: var(--footer-fg);
+      padding: 2.25rem clamp(1.5rem, 4vw, 4rem);
+      display: flex; flex-wrap: wrap; gap: 1.75rem 3rem; align-items: center; justify-content: space-between;
+    }
+    .footer-brand { font-family: var(--display); font-size: 1.15rem; font-weight: 600; }
+    .footer-brand span { display: block; font-family: var(--body); font-weight: 400; font-size: 0.85rem; opacity: 0.7; margin-top: 0.2rem; }
+    .footer-contact { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem; }
+    .footer-contact a { text-decoration: none; }
+    .footer-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .btn {
+      display: inline-block; background: var(--btn-bg); color: var(--btn-fg);
+      font-weight: 600; font-size: 0.98rem; padding: 0.8rem 1.5rem; border-radius: 3px; text-decoration: none;
+      transition: opacity .2s ease;
+    }
+    .btn:hover { opacity: 0.85; }
+    .footer-legal { width: 100%; font-size: 0.82rem; opacity: 0.6; border-top: 1px solid rgba(237,239,233,0.18); padding-top: 1.25rem; }
+
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; }
+      .sidebar { position: static; min-height: 0; flex-direction: row; flex-wrap: wrap; align-items: center; padding: 1.25rem 1.5rem; gap: 1.5rem; }
+      .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 1.25rem; }
+      .about .wrap-about { grid-template-columns: minmax(0, 1fr); }
+      .about-side { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-top: 1.5rem; flex-direction: row; flex-wrap: wrap; }
+    }
+    @media (max-width: 560px) {
+      .service-cols { grid-template-columns: minmax(0, 1fr); }
+      footer.contact { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <aside class="sidebar">
+    <nav class="sidebar-nav" aria-label="Main">
+      <a href="index.html#top">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </aside>
+
+  <div class="content">
+    <div class="masthead" id="top">
+      <div class="brand">The Guagliardo Group</div>
+      <div class="tag">Medical Practice Management Consulting</div>
+      <div class="tag">Since 2021</div>
+    </div>
+    <section class="about" id="about">
+      <div class="wrap-about">
+        <div>
+          <h2>About us</h2>
+          <p>Since 2021, The Guagliardo Group has helped and empowered clients to overcome their most challenging obstacles and achieve their goals. The group has served in strategic business planning, business development, merger and acquisition integration, app development, EMR ecosystem selection and implementation, MIPS five star planning, and overall operations for healthcare clients.</p>
+          <p>Founded by Alan Guagliardo, the group taps into his experience and the combined expertise of executives from great companies such as DaVita, Acuity Eye Group, and Pacific Dental Services. Prior to founding the company, Alan served as right hand to the founder and CEO at Acuity and then went on to lead a dental startup to a critical investment round.</p>
+          <p>He started his career on the clinical innovation team at DaVita, where the small and scrappy Sea Otters turned moonshots into pilots and ultimately into scalable programs. He had the luck to have great mentors and leaders that he followed through the dialysis, hospital, ophthalmology, and dental industries. During this time, Alan held positions such as Process Engineer, Operations Manager, Director of Operations, Vice President, and Chief Strategy and Innovation Officer, with P&amp;L responsibility over $100 million.</p>
+          <p>In his spare time, Alan enjoys spending time with his partner and son, swing dancing (Lindy Hop and Balboa), cycling, and cooking.</p>
+        </div>
+        <dl class="about-side">
+          <div class="fact">
+            <dt>Founded</dt>
+            <dd>2021</dd>
+          </div>
+          <div class="fact">
+            <dt>Founder</dt>
+            <dd>Alan Guagliardo</dd>
+          </div>
+          <div class="fact">
+            <dt>Education</dt>
+            <dd>B.S. Industrial Engineering</dd>
+            <dd>M.S. Engineering Management</dd>
+          </div>
+          <div class="fact">
+            <dt>Previous Roles</dt>
+            <dd>Chief Information Officer</dd>
+            <dd>Chief Strategy and Innovation Officer</dd>
+            <dd>Chief Operating Officer (Interim)</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer class="contact" id="contact">
+  <div class="footer-brand">
+    The Guagliardo Group
+    <span>Medical practice management consulting</span>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:alan@theguagliardogroup.com">alan@theguagliardogroup.com</a>
+    <a href="tel:+16267209803">(626) 720-9803</a>
+  </div>
+  <a class="btn" href="mailto:alan@theguagliardogroup.com?subject=Inquiry%20for%20The%20Guagliardo%20Group">Contact us</a>
+  <div class="footer-legal">The Guagliardo Group &copy; 2026 All Rights Reserved</div>
+</footer>
+
+</body>
+</html>
