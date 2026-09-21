@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>The Guagliardo Group | Medical practice management consulting</title>
+  <title>The Guagliardo Group | Medical Practice Management Consulting</title>
   <meta name="description" content="The Guagliardo Group is a medical practice management consulting firm providing strategy, operations, EMR integration, and process design for medical and dental clients.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,17 +15,17 @@
       padding-bottom: env(safe-area-inset-bottom, 0px);
 
       --paper: #FFFFFF;
-      --ink: #123832;
+      --ink: #060315;
       --ink-2: #1A4740;
       --text: #333F3D;
       --muted: #5C6764;
       --amber: #C77E2E;
       --focus: #A8611B;
       --line: rgba(18, 56, 50, 0.16);
-      --sidebar-bg: #123832;
+      --sidebar-bg: #121d38;
       --sidebar-fg: #EDEFE9;
       --sidebar-fg-dim: rgba(237, 239, 233, 0.62);
-      --footer-bg: #123832;
+      --footer-bg: #040427;
       --footer-fg: #EDEFE9;
       --btn-bg: #C77E2E;
       --btn-fg: #123832;
@@ -87,17 +87,26 @@
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 2rem;
       position: sticky;
       top: 0;
       align-self: start;
       min-height: 100vh;
     }
-    .mark {
-      width: 52px; height: 52px; border: 1.5px solid rgba(237,239,233,0.55); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--display); font-size: 1.35rem; color: var(--sidebar-fg);
+
+    /* Logo Area Above Nav */
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
     }
+    .sidebar-logo img {
+      max-width: 100%;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+    }
+
     .sidebar-nav { display: flex; flex-direction: column; gap: 1.1rem; }
     .sidebar-nav a {
       text-decoration: none; color: var(--sidebar-fg-dim);
@@ -119,11 +128,20 @@
     .intro p { max-width: 46rem; font-size: 1.05rem; }
     .intro p + p { margin-top: 1.1rem; }
 
-    .services h2 { margin-bottom: 1.5rem; }
-    .service-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
-    .service-cols li { padding: 0.6rem 0 0.6rem 1.1rem; border-top: 1px solid var(--line); font-size: 1rem; line-height: 1.45; position: relative; }
+    /* Services Section Formatting */
+    .services h2 { margin-bottom: 2.5rem; }
+    .services h3 { margin-top: 1.5rem; margin-bottom: 1rem; }
+    .services h3:first-of-type { margin-top: 0; }
+    .service-cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .service-cols:last-child { margin-bottom: 0; }
+    .service-cols li { padding: 0.6rem 0 0.6rem 1.1rem; border-top: 0px solid var(--line); font-size: 1rem; line-height: 1.45; position: relative; }
     .service-cols li::before { content: ""; position: absolute; left: 0; top: 1.05rem; width: 6px; height: 6px; background: var(--amber); }
-    .service-cols li:last-child { border-bottom: 1px solid var(--line); }
+    .service-cols li:last-child { border-bottom: 0px solid var(--line); }
 
     .about .wrap-about { display: grid; grid-template-columns: minmax(0, 1fr) 15rem; gap: 2.5rem 3rem; }
     .about h2 { margin-bottom: 1.1rem; }
@@ -162,7 +180,7 @@
       .about-side { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-top: 1.5rem; flex-direction: row; flex-wrap: wrap; }
     }
     @media (max-width: 560px) {
-      .service-cols { grid-template-columns: minmax(0, 1fr); }
+      .service-cols { grid-template-columns: minmax(0, 1fr); margin-bottom: 1.5rem; }
       footer.contact { flex-direction: column; align-items: flex-start; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
@@ -172,11 +190,15 @@
 
 <div class="page">
   <aside class="sidebar">
-    <div class="mark" aria-hidden="true">GG</div>
+    <!-- Place image URL/path in src below -->
+    <!--<div class="sidebar-logo">
+      <img src="logo.png" alt="The Guagliardo Group Logo">
+    </div> -->
+
     <nav class="sidebar-nav" aria-label="Main">
       <a href="#top">Home</a>
-      <a href="#about">About Us</a>
       <a href="#services">Services</a>
+      <a href="about.html">About Us</a>
       <a href="#contact">Contact Us</a>
     </nav>
   </aside>
@@ -184,7 +206,8 @@
   <div class="content">
     <div class="masthead" id="top">
       <div class="brand">The Guagliardo Group</div>
-      <div class="tag">Medical practice management consulting</div>
+      <div class="tag">Medical Practice Management Consulting</div>
+      <div class="tag">Since 2021</div>
     </div>
 
     <section class="intro">
@@ -194,16 +217,26 @@
 
     <section class="services" id="services">
       <h2>Services include:</h2>
+
+      <h3>Strategic Projects</h3>
       <ul class="service-cols">
         <li>MIPS and Five Star program management</li>
         <li>Capitation contract negotiations</li>
         <li>Facilitation of company goal setting and alignment through all departments</li>
         <li>Physician compensation planning</li>
+      </ul>
+
+      <h3>Operations Improvement, Integration, and Turnarounds</h3>
+      <ul class="service-cols">
         <li>Review of business protocols, creation of improvement plan and playbook, and implementation of new processes</li>
         <li>Management of integration process for acquisitions from due diligence through integration post close</li>
         <li>Full department overhauls, including full staff evaluation, metric analysis, and implementation of change plan</li>
         <li>Cost and metric benchmarking</li>
         <li>Negotiation of supply contracts</li>
+      </ul>
+
+      <h3>Electronic Medical Records (EMR) and Technology</h3>
+      <ul class="service-cols">
         <li>Evaluation and implementation of EMR platforms and integration of third party products (e.g. confirmation systems)</li>
         <li>Evaluation and road mapping of all technology platforms, including EMR, phone systems, and equipment</li>
         <li>Assistance interviewing potential hires for industry knowledge, operational ability, and cultural fit</li>
@@ -211,50 +244,20 @@
       </ul>
     </section>
 
-    <section class="about" id="about">
-      <div class="wrap-about">
-        <div>
-          <h2>About us</h2>
-          <p>Since 2021, The Guagliardo Group has helped and empowered clients to overcome their most challenging obstacles and achieve their goals. The group has served in strategic business planning, business development, merger and acquisition integration, app development, EMR ecosystem selection and implementation, MIPS five star planning, and overall operations for healthcare clients.</p>
-          <p>Founded by Alan Guagliardo, the group taps into his experience and the combined expertise of executives from great companies such as DaVita, Acuity Eye Group, and Pacific Dental Services. Prior to founding the company, Alan served as right hand to the founder and CEO at Acuity and then went on to lead a dental startup to a critical investment round.</p>
-          <p>He started his career on the clinical innovation team at DaVita, where the small and scrappy Sea Otters turned moonshots into pilots and ultimately into scalable programs. He had the luck to have great mentors and leaders that he followed through the dialysis, hospital, ophthalmology, and dental industries. During this time, Alan held positions such as Process Engineer, Operations Manager, Director of Operations, Vice President, and Chief Strategy and Innovation Officer, with P&amp;L responsibility over $100 million.</p>
-          <p>In his spare time, Alan enjoys spending time with his partner and son, swing dancing (Lindy Hop and Balboa), racing at the velodrome, and cooking.</p>
-        </div>
-        <dl class="about-side">
-          <div class="fact">
-            <dt>Founded</dt>
-            <dd>2021</dd>
-          </div>
-          <div class="fact">
-            <dt>Founder</dt>
-            <dd>Alan Guagliardo</dd>
-          </div>
-          <div class="fact">
-            <dt>Education</dt>
-            <dd>B.S. and M.S., Industrial Engineering</dd>
-          </div>
-          <div class="fact">
-            <dt>Background</dt>
-            <dd>DaVita, Acuity Eye Group, Pacific Dental Services</dd>
-          </div>
-        </dl>
+    <footer class="contact" id="contact">
+      <div class="footer-brand">
+        The Guagliardo Group
+        <span>Medical practice management consulting</span>
       </div>
-    </section>
+      <div class="footer-contact">
+        <a href="mailto:alan@theguagliardogroup.com">alan@theguagliardogroup.com</a>
+        <a href="tel:+16267209803">(626) 720-9803</a>
+      </div>
+      <a class="btn" href="mailto:alan@theguagliardogroup.com?subject=Inquiry%20for%20The%20Guagliardo%20Group">Contact us</a>
+      <div class="footer-legal">The Guagliardo Group &copy; 2026 All Rights Reserved</div>
+    </footer>
   </div>
 </div>
-
-<footer class="contact" id="contact">
-  <div class="footer-brand">
-    The Guagliardo Group
-    <span>Medical practice management consulting</span>
-  </div>
-  <div class="footer-contact">
-    <a href="mailto:you@example.com">you@example.com</a>
-    <a href="tel:+10000000000">(000) 000-0000</a>
-  </div>
-  <a class="btn" href="mailto:you@example.com?subject=Inquiry%20for%20The%20Guagliardo%20Group">Contact us</a>
-  <div class="footer-legal">The Guagliardo Group &copy; 2026 All Rights Reserved</div>
-</footer>
 
 </body>
 </html>
